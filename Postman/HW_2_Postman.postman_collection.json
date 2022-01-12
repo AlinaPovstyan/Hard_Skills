@@ -118,15 +118,14 @@
 							"\r",
 							"//12. Проверить что u_salary_1_5_year в ответе равно salary*4 (salary забрать из request)\r",
 							"\r",
-							"var req_u_salary_1_5_year = resp_family.u_salary_1_5_year;\r",
-							"console.log (req_u_salary_1_5_year);\r",
+							"var resp_u_salary_1_5_year = pm.response.json().family.u_salary_1_5_year;\r",
+							"console.log(resp_u_salary_1_5_year);\r",
 							"\r",
 							"pm.test(\"u_salary_1_5_year = salary*4\", function (){\r",
-							"   pm.expect(req_u_salary_1_5_year).to.eql(resp.salary*4);\r",
+							"   pm.expect(resp_u_salary_1_5_year).to.eql(req.salary*4);\r",
 							"})\r",
 							"\r",
-							"var respi_salary = pm.response.json().salary*4;\r",
-							"console.log(respi_salary)"
+							""
 						],
 						"type": "text/javascript"
 					}
