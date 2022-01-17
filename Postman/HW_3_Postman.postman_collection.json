@@ -12,7 +12,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"resp_token = pm.response.json().token;\r",
+							"var resp_token = pm.response.json().token;\r",
 							"console.log(\"token = \" + resp_token);\r",
 							"\r",
 							"pm.environment.set(\"token\", resp_token);\r",
