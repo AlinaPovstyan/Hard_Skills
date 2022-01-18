@@ -12,12 +12,11 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"resp_token = pm.response.json().token;\r",
+							"// 1) Статус код 200\r",
+							"var resp_token = pm.response.json().token\r",
 							"console.log(\"token = \" + resp_token);\r",
 							"\r",
-							"pm.environment.set(\"token\", resp_token);\r",
-							"\r",
-							""
+							"pm.environment.set(\"token\", resp_token);"
 						],
 						"type": "text/javascript"
 					}
@@ -643,23 +642,35 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"var resp = pm.response.json();\r",
-							"console.log(resp);\r",
+							"resp = pm.response.json();\r",
+							"\r",
 							"\r",
 							"for (var i = 0, length = resp.length; i < length; i++) {\r",
-							"//console.log(resp[i])\r",
-							"pm.sendRequest({\r",
+							"    var id = resp[i][\"Cur_ID\"]\r",
+							"    // console.log(id)\r",
+							"var req = {\r",
 							"    url:'162.55.220.72:5005/curr_byn',\r",
 							"    method: 'POST',\r",
+							"    header: {},\r",
 							"    body: {\r",
-							"        mode: 'fromdata',\r",
-							"        formdata:  [\r",
-							"            {key: \"auth_token\", value: \"/s34lfgbj/Alina/jjd909/52391kjkWpqc514123442047evny\"},\r",
-							"            {key: \"curr_code\", value: resp.Cur_ID}\r",
-							"        ]\r",
-							"    }\r",
+							"        mode:'formdata',\r",
+							"        formdata: [\r",
+							"            {\"key\": \"auth_token\", \"value\" : pm.environment.get(\"token\")},\r",
+							"            {\"key\":\"curr_code\", \"value\" : id}\r",
+							"        ]}\r",
+							"}\r",
+							"pm.sendRequest(req, function(err,resp2){\r",
+							"    if (resp2.code == 500){\r",
+							"    console.log(\"----- = \", resp2.status)}\r",
+							"    else {\r",
+							"        if (resp2.code == 200) {\r",
+							"        resp2json = resp2.json()\r",
+							"        if (resp2json.hasOwnProperty(\"Cur_OfficialRate\")) {\r",
+							"    console.log(\"arrrr = \", resp2json);}\r",
+							"    }}\r",
 							"})\r",
-							"}"
+							"}\r",
+							""
 						],
 						"type": "text/javascript"
 					}
