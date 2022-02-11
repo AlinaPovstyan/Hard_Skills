@@ -68,10 +68,10 @@ select * from salary;
 
 -------HW_2------
 
---1. Создать таблицу employees
+--1. РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ employees
 --- 1) id. serial,  primary key,
 --- employee_name. Varchar(50), not null
---  2)Наполнить таблицу employee 70 строками.
+--  2)РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ employee 70 СЃС‚СЂРѕРєР°РјРё.
 
 create table employees (
 	id serial primary key,
@@ -153,10 +153,10 @@ values  ('Harper Carter'),
 select * from employees;
 
 
---2. Создать таблицу salary
+--2. РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ salary
 --- 1)id. Serial  primary key,
 --- monthly_salary. Int, not null
---	2)Наполнить таблицу salary 15 строками:
+--	2)РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ salary 15 СЃС‚СЂРѕРєР°РјРё:
 
 create table salary_1(
 	id serial primary key,
@@ -183,12 +183,12 @@ values  (1000),
 select * from salary_1;
 
 
---3.Создать таблицу employee_salary
+--3.РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ employee_salary
 --- 1)id. Serial  primary key,
 --- employee_id. Int, not null, unique
 --- salary_id. Int, not null
---	2) Наполнить таблицу employee_salary 40 строками:
---- в 10 строк из 40 вставить несуществующие employee_id
+--	2) РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ employee_salary 40 СЃС‚СЂРѕРєР°РјРё:
+--- РІ 10 СЃС‚СЂРѕРє РёР· 40 РІСЃС‚Р°РІРёС‚СЊ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРµ employee_id
 
 create table employee_salary(
 	id serial primary key,
@@ -243,12 +243,12 @@ select * from employee_salary;
 
 
 
---Таблица roles
---1) Создать таблицу roles
+--РўР°Р±Р»РёС†Р° roles
+--1) РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ roles
 --- id. Serial  primary key,
 --- role_name. int, not null, unique
---2) Поменять тип столба role_name с int на varchar(30)
---3) Наполнить таблицу roles 20 строками:
+--2) РџРѕРјРµРЅСЏС‚СЊ С‚РёРї СЃС‚РѕР»Р±Р° role_name СЃ int РЅР° varchar(30)
+--3) РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ roles 20 СЃС‚СЂРѕРєР°РјРё:
 
 create table roles_1(
 	id serial primary key,
@@ -283,13 +283,13 @@ values  ('Junior Python developer'),
 select * from roles_1;
 
 
---Таблица roles_employee
+--РўР°Р±Р»РёС†Р° roles_employee
 --
---1) Создать таблицу roles_employee
+--1) РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ roles_employee
 --- id. Serial  primary key,
---- employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
---- role_id. Int, not null (внешний ключ для таблицы roles, поле id)
---2) Наполнить таблицу roles_employee 40 строками:
+--- employee_id. Int, not null, unique (РІРЅРµС€РЅРёР№ РєР»СЋС‡ РґР»СЏ С‚Р°Р±Р»РёС†С‹ employees, РїРѕР»Рµ id)
+--- role_id. Int, not null (РІРЅРµС€РЅРёР№ РєР»СЋС‡ РґР»СЏ С‚Р°Р±Р»РёС†С‹ roles, РїРѕР»Рµ id)
+--2) РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ roles_employee 40 СЃС‚СЂРѕРєР°РјРё:
 
 create table roles_emloyee(
 	id serial primary key,
