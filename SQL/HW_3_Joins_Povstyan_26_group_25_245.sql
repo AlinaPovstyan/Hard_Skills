@@ -4,7 +4,7 @@ select * from employees;
 select * from salary_1;
 select * from employee_salary;
 select * from roles_1;
-select * from roles_emloyee;
+select * from roles_employee;
 
 
 -- 1. Вывести всех работников чьи зарплаты есть в базе, вместе с зарплатами.
