@@ -108,7 +108,7 @@ select employee_name, monthly_salary, role_name from employee_salary
  join salary_1 on salary_1.id = salary_id
  join roles_employee on roles_employee.role_id = employee_salary.employee_id 
  join roles_1 on roles_1.id = roles_employee.role_id 
-where role_name like '%Middle%'
+where role_name like '%Middle%';
 
 -- 14. Вывести имена и зарплаты Senior специалистов
 
@@ -280,8 +280,7 @@ where monthly_salary < 2300
 order by monthly_salary asc;
 
 
--- 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 
----1100, 1500, 2000
+-- 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна  1100, 1500, 2000
 
 select employee_name,role_name, monthly_salary from employee_salary 
 join employees on employees.id = employee_salary.employee_id
