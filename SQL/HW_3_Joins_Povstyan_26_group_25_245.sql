@@ -259,39 +259,36 @@ where role_name like '%dev%';
 
 select employee_name,role_name, monthly_salary from employee_salary 
 join employees on employees.id = employee_salary.employee_id
-join roles_employee on roles_employee.role_id = employee_salary.employee_id 
-join roles_1 on roles_1.id = roles_employee.role_id 
+join roles_1 on roles_1.id = employee_salary.employee_id
 join salary_1 on salary_1.id = employee_salary.salary_id
 order by monthly_salary asc;
 
 -- 30. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП от 1700 до 2300
 
+
 select employee_name,role_name, monthly_salary from employee_salary 
 join employees on employees.id = employee_salary.employee_id
-join roles_employee on roles_employee.role_id = employee_salary.employee_id 
-join roles_1 on roles_1.id = roles_employee.role_id 
+join roles_1 on roles_1.id = employee_salary.employee_id
 join salary_1 on salary_1.id = employee_salary.salary_id
 where monthly_salary between 1700 and 2300
 order by monthly_salary asc;
+
 
 -- 31. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП меньше 2300
 
 select employee_name,role_name, monthly_salary from employee_salary 
 join employees on employees.id = employee_salary.employee_id
-join roles_employee on roles_employee.role_id = employee_salary.employee_id 
-join roles_1 on roles_1.id = roles_employee.role_id 
+join roles_1 on roles_1.id = employee_salary.employee_id
 join salary_1 on salary_1.id = employee_salary.salary_id
-where monthly_salary < 2300
+where monthly_salary < 2300 
 order by monthly_salary asc;
 
 
--- 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 
----1100, 1500, 2000
+-- 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 1100, 1500, 2000
 
 select employee_name,role_name, monthly_salary from employee_salary 
 join employees on employees.id = employee_salary.employee_id
-join roles_employee on roles_employee.role_id = employee_salary.employee_id 
-join roles_1 on roles_1.id = roles_employee.role_id 
+join roles_1 on roles_1.id = employee_salary.employee_id
 join salary_1 on salary_1.id = employee_salary.salary_id
 where monthly_salary in(1100,1500,2000)
 order by monthly_salary asc;
