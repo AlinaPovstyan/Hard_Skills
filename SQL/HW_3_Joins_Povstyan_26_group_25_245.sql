@@ -4,7 +4,7 @@ select * from employees;
 select * from salary_1;
 select * from employee_salary;
 select * from roles_1;
-select * from roles_employee;
+select * from roles_emloyee;
 
 
 -- 1. Вывести всех работников чьи зарплаты есть в базе, вместе с зарплатами.
@@ -140,18 +140,15 @@ where role_name like '%Python dev%';
 
 select employee_name,role_name, monthly_salary from employee_salary 
 join employees on employees.id = employee_salary.employee_id
-join roles_employee on roles_employee.role_id = employee_salary.employee_id 
-join roles_1 on roles_1.id = roles_employee.role_id 
+join roles_1 on roles_1.id = employee_salary.employee_id
 join salary_1 on salary_1.id = employee_salary.salary_id
 where role_name like '%Junior Python%';
-
 
 -- 18. Вывести имена и зарплаты Middle JS разработчиков
 
 select employee_name,role_name, monthly_salary from employee_salary 
 join employees on employees.id = employee_salary.employee_id
-join roles_employee on roles_employee.role_id = employee_salary.employee_id 
-join roles_1 on roles_1.id = roles_employee.role_id 
+join roles_1 on roles_1.id = employee_salary.employee_id
 join salary_1 on salary_1.id = employee_salary.salary_id
 where role_name like '%Middle%J%S%';
 
@@ -159,8 +156,7 @@ where role_name like '%Middle%J%S%';
 
 select employee_name,role_name, monthly_salary from employee_salary 
 join employees on employees.id = employee_salary.employee_id
-join roles_employee on roles_employee.role_id = employee_salary.employee_id 
-join roles_1 on roles_1.id = roles_employee.role_id 
+join roles_1 on roles_1.id = employee_salary.employee_id
 join salary_1 on salary_1.id = employee_salary.salary_id
 where role_name like '%Senior Java dev%';
 
@@ -170,7 +166,7 @@ select role_name, monthly_salary from employee_salary
 join roles_employee on roles_employee.role_id = employee_salary.employee_id 
 join roles_1 on roles_1.id = roles_employee.role_id 
 join salary_1 on salary_1.id = employee_salary.salary_id
-where role_name like '%Junior%';
+where role_name like '%Junior%eng%';
 
 -- 21. Вывести среднюю зарплату всех Junior специалистов
 
@@ -284,7 +280,8 @@ where monthly_salary < 2300
 order by monthly_salary asc;
 
 
--- 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 1100, 1500, 2000
+-- 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна 
+---1100, 1500, 2000
 
 select employee_name,role_name, monthly_salary from employee_salary 
 join employees on employees.id = employee_salary.employee_id
