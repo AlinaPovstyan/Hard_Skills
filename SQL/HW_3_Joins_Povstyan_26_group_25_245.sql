@@ -44,17 +44,16 @@ where monthly_salary < 2000;
 
 -- 5. Найти всех работников кому не начислена ЗП.
 
-select employee_name, monthly_salary from employee_salary
+select employee_name, monthly_salary  from employee_salary
 right join employees on employees.id = employee_id
 left join salary_1 on salary_1.id = salary_id
-where monthly_salary is null;
-
+where  monthly_salary is null;
 
 -- 6. Вывести всех работников с названиями их должности.
 
 select employee_name, role_name from roles_employee
-right join employees on employees.id = employee_id
-left join roles_1 on roles_1.id = role_id;
+join employees on employees.id = employee_id
+join roles_1 on roles_1.id = role_id;
 
 -- 7. Вывести имена и должность только Java разработчиков.
 
