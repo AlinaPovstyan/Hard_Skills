@@ -302,11 +302,3 @@ where monthly_salary in(1100,1500,2000);
 order by monthly_salary asc;
 
 
--- 32. Вывести имена, должности и ЗП всех специалистов по возрастанию у специалистов у которых ЗП равна  1100, 1500, 2000
-
-select employee_name,role_name, monthly_salary from employee_salary 
-join employees on employees.id = employee_salary.employee_id
-join roles_1 on roles_1.id = employee_salary.employee_id
-join salary_1 on salary_1.id = employee_salary.salary_id
-where monthly_salary in(1100,1500,2000)
-order by monthly_salary asc;
